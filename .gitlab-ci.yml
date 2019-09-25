@@ -1,16 +1,31 @@
-image: "ruby:2.5"
+image: alpine:latest
 
-before_script:
-  - apt-get update -qq && apt-get install -y -qq sqlite3 libsqlite3-dev nodejs
-  - ruby -v
-  - which ruby
-  - gem install bundler --no-document
-  - bundle install --jobs $(nproc)  "${FLAGS[@]}"
+stages:
+ - hello
+ - datetime
+ - deploy
+ 
+helloworld:
+ stage: hello
+ script
+  - echo "hello world"
+  
+explain-yourself:
+ stage: hello
+ script:
+  - echo "This is a GitLab CI job"
+  
+what-time-is-it:
+ stage: datetime 
+ script:
+  - datetime
 
-rspec:
-  script:
-    - bundle exec rspec
-
-rubocop:
-  script:
-    - bundle exec rubocop
+deploy-auto:
+ stage: deploy
+ script:
+  - echo "automatic"
+  
+deploy-manual:
+ stage: deploy
+ script:
+  - echo "manual"
