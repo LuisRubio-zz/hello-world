@@ -18,7 +18,7 @@ explain-yourself:
 what-time-is-it:
  stage: datetime 
  script:
-  - datetime
+  - date
 
 deploy-auto:
  stage: deploy
