@@ -7,7 +7,7 @@ stages:
  
 helloworld:
  stage: hello
- script
+ script:
   - echo "hello world"
   
 explain-yourself:
